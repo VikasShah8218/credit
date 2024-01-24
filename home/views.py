@@ -121,7 +121,6 @@ def check_eligibility(request):
     for i in loans:
         total_emi += int(i.tenure)
         emi_onTime += int(i.EMI_on_Time)
-        print(i.end_date)
         if today_date <= i.end_date: #means curruntly ongoing Loans
             total_currunt_loan_amount += i.loan_amount
             current_emi =+ i.monthly_payment
@@ -167,7 +166,6 @@ def check_eligibility(request):
             pass
         else:
             lowest_intrest = 12
-        print(interest_rate)
         total_intrest = ((float(data['tenure']))/12)*lowest_intrest
         total_amount = ((total_intrest/100)+1)*float(data["loan_amount"])
         monthly_emi = int((total_amount)/int(data["tenure"]))
@@ -241,7 +239,6 @@ def create_loan(request):
             emi_onTime += int(i.EMI_on_Time)
         except:
             emi_onTime = 0
-        print(i.end_date)
         if today_date <= i.end_date: #means curruntly ongoing Loans
             total_currunt_loan_amount += i.loan_amount
             current_emi =+ i.monthly_payment
@@ -298,7 +295,6 @@ def create_loan(request):
             pass
         else:
             lowest_intrest = 12
-        print(interest_rate)
         total_intrest = ((float(data['tenure']))/12)*lowest_intrest
         total_amount = ((total_intrest/100)+1)*float(data["loan_amount"])
         monthly_emi = int((total_amount)/int(data["tenure"]))
@@ -376,7 +372,6 @@ def view_loan(request,id):
         return Response({"msg":str(e)})
     
     user_seriliser = CustomerSerializers(user)
-    print((user_seriliser))
     return Response({
         "loan_id":loan.id,
         "loan_amount":loan.loan_amount,

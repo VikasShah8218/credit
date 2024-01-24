@@ -4,20 +4,25 @@ DB Port -> 5431
 DB USER -> postgres
 DB HOST -> localhost
 
-Super User -> Shah
-password -> Shah
-Email -> Vikasshah8218@gmail.com
+------------------------------------------------------------------------------------------
+git clone https://github.com/VikasShah8218/credit.git
+pip install -r req.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+------------------------------------------------------------------------------------------
+
 
 
 ------------------------------------------------------------------------------------------
-/upload-customer POST request
+http://127.0.0.1:8000/upload-customer POST request
 {
   "start":"START"
 }
 ------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------
-/upload-loan POST request
+http://127.0.0.1:8000/upload-loan POST request
 {
   "start":"START"
 }
@@ -25,7 +30,7 @@ Email -> Vikasshah8218@gmail.com
 
 
 ------------------------------------------------------------------------------------------
-/register POST request 
+http://127.0.0.1:8000/register POST request 
 {
   "first_name":"Shah",
   "last_name":"8218",
@@ -36,7 +41,7 @@ Email -> Vikasshah8218@gmail.com
 ------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------
-/check-eligibility POST request 
+http://127.0.0.1:8000/check-eligibility POST request 
 {
   "customer_id":"23",
   "loan_amount":"10000",
@@ -46,7 +51,7 @@ Email -> Vikasshah8218@gmail.com
 ------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------
-/create-loan POST request 
+http://127.0.0.1:8000/create-loan POST request 
 {
   "customer_id":"23",
   "loan_amount":"10000",

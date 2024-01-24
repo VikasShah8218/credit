@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from . models import Customer,Loan
 from django.views.decorators.csrf import csrf_exempt  #This is only for Development , not for Deployment { Security Issues may Come }
 import json
@@ -42,7 +42,8 @@ def register(request):
         return Response(serial.data)
     except Exception as e:
         return Response({"msg":str(e)})
-@api_view(["GET"])
+
+@api_view(["POST"])
 @csrf_exempt
 def upload_customer(request):
         if json.loads(request.body)["start"] == "START":
@@ -65,7 +66,7 @@ def upload_customer(request):
             return Response({"msg":"Code Error"})
    
 
-@api_view(["GET"])
+@api_view(["POST"])
 @csrf_exempt
 def upload_loan(request):
         if json.loads(request.body)["start"] == "START":

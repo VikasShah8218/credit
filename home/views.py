@@ -41,11 +41,10 @@ def register(request):
         serial = CustomerSerializers(new_user)
         return Response(serial.data)
     except Exception as e:
-        return JsonResponse({"msg":str(e)})
-
+        return Response({"msg":str(e)})
+@api_view(["GET"])
 @csrf_exempt
 def upload_customer(request):
-    if request.method == "POST":
         if json.loads(request.body)["start"] == "START":
             data = pd.read_excel("customer_data.xlsx")
             try:
@@ -59,18 +58,16 @@ def upload_customer(request):
                         monthly_income = row["Monthly Salary"],
                         approved_limit = row['Approved Limit']
                     )
-                return JsonResponse({"msg":"Coustomer Data Uploded"})
+                return Response({"msg":"Coustomer Data Uploded"})
             except Exception as e:
-                return JsonResponse({"msg":str(e)})
+                return Response({"msg":str(e)})
         else:
-            return JsonResponse({"msg":"Code Error"})
-    else:
-        return JsonResponse({"msg":"Method Error"})
+            return Response({"msg":"Code Error"})
+   
 
-
+@api_view(["GET"])
 @csrf_exempt
 def upload_loan(request):
-    if request.method == "POST":
         if json.loads(request.body)["start"] == "START":
             data = pd.read_excel("loan_data.xlsx")
             try:
@@ -87,13 +84,12 @@ def upload_loan(request):
                         approvel_date = row['Date of Approval'],
                         end_date = row['End Date']
                     )
-                return JsonResponse({"msg":"Loan Data Uploded"})
+                return Response({"msg":"Loan Data Uploded"})
             except Exception as e:
-                return JsonResponse({"msg":str(e)})
+                return Response({"msg":str(e)})
         else:
-            return JsonResponse({"msg":"Code Error"})
-    else:
-        return JsonResponse({"msg":"Method Error"})
+            return Response({"msg":"Code Error"})
+  
 
 @api_view(["POST"])  
 @csrf_exempt

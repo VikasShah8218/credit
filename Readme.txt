@@ -4,6 +4,11 @@ DB Port -> 5431
 DB USER -> postgres
 DB HOST -> localhost
 
+
+Video Link 
+https://drive.google.com/file/d/1VomfYJuvt_jrMBPsiiBo6-HIDeB3zdBF/view?usp=sharing
+
+
 ------------------------------------------------------------------------------------------
 git clone https://github.com/VikasShah8218/credit.git
 pip install -r req.txt

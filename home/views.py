@@ -19,7 +19,7 @@ def test(request):
 @csrf_exempt
 def register(request):
     try:
-        data = json.loads(request.body)
+        data = request.data
         first_name = data["first_name"]
         last_name = data["last_name"]
         age = data["age"]
